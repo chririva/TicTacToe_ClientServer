@@ -19,9 +19,16 @@ class TicTacToeClientConnection:
                 return 0
     def close_connection(self):
         self.s.close()
-    def initial_settings(self,number_of_player,my_name):
-        data_to_send = ([1,number_of_player,my_name])
+    def initial_settings(self,number_of_player,my_name,which_game):
+        data_to_send = ([1,number_of_player,my_name,which_game])
         arr = pickle.dumps(data_to_send)
         self.s.send(arr)
         data = self.s.recv(4096)
         data_received = pickle.loads(data)
+    def battlefield_request(self):
+        data_to_send = ([2])
+        arr = pickle.dumps(data_to_send)
+        self.s.send(arr)
+        data = self.s.recv(4096)
+        data_received = pickle.loads(data)
+        return something

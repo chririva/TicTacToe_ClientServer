@@ -53,6 +53,9 @@ class TicTacToe:
     def print_battlefield(self):
         print(tabulate(self.battlefield, tablefmt="grid"))
 
+    def get_battlefield(self):
+        return self.battlefield
+
     def get_next(self):
         if self.next_player == 0:
             return 1
