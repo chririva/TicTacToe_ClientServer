@@ -31,4 +31,4 @@ class TicTacToeClientConnection:
         self.s.send(arr)
         data = self.s.recv(4096)
         data_received = pickle.loads(data)
-        return something
+        return data_received[1]

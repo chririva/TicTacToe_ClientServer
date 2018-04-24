@@ -17,5 +17,5 @@ which_game = int(input("TicTacToe [1] or GuessNumber [2]: "))
 if connection.connect()==1:
     print("Connected")
     connection.initial_settings(number_of_player,playername,which_game)
-
+    print(tabulate(connection.battlefield_request(), tablefmt="grid"))
 #connection.close_connection()

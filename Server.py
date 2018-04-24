@@ -39,6 +39,7 @@ while SERVER_STATUS == 0:
                     else:
                         SERVER_STATUS = 2
                     break
+    print("SERVER_STATUS: ",SERVER_STATUS)
     while SERVER_STATUS == 2:
         raise NotImplementedError #NOT IMPLEMENTED YET
     while SERVER_STATUS == 1:
@@ -48,5 +49,8 @@ while SERVER_STATUS == 0:
                 # conn.send(data)
                 data_arr = pickle.loads(data)
                 print("RECEIVED: ", repr(data_arr))
+                if data_arr[0] == 2:
+                    #request battlefield
+                    conn.send(pickle.dumps([2, game.get_battlefield()]))
 
     conn.close()
